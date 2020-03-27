@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--Poniższe dane dają możliwość pozycjonowania strony oraz info
+    o autorze-->
+    <meta name="author" content="Michał Radecki">
+    <meta name="desription" content="This page is my first page and it was created 
+    in learning purposes">
+    <link rel="icon" href="rondel.ico" type="image/x-icon">
+      <link href="minimal-table.css" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+    <title>London Underground</title>
+    <nav>
+      <table>
+        <tr>
+          <td><li><a href="index.html">Stona Główna</a></li></td>
+          <td><li><a href="Metropolitan.html">Metropolitan</a></li></td>
+          <td><li><a href="District.html">District Line</a></li></td>
+          <td><li><a href="Circle.html">Circle Line</a></li></td>
+          <td><li><a href="form.html">HTML FORM</a></li></td>
+        </tr>
+      </table>
+
+       </form>
+     </nav>
+  </head>
+  <body>
+    <br>
+    <form action="../PD_HTML_RAD/data.txt" method="post">
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name">
+        </li>
+        <li>
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address">
+        </li>
+        <li>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date">
+        </li>
+        <li>
+          <label for="msg">Additional notes:</label>
+          <textarea id="msg" name="user_message"></textarea>
+        </li>
+       </ul>
+       <li class="button">
+        <button type="submit">Send your message</button>
+      </li>
+    </form>
+
+  </body>
+</html>
