@@ -1,0 +1,21 @@
+p {
+  color: #E7DFD7
+}
+
+
+
+p {
+  height: 10em;
+  position: relative }
+p {
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) 
+}
+
+
+ 
