@@ -1,0 +1,18 @@
+label, h1 {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+label, input {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+form, h1 {
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
