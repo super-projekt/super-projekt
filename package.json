@@ -1,0 +1,26 @@
+{
+  "name": "super-projekt",
+  "version": "1.0.0",
+  "description": "TODO App for management of personal tasks and goals",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twardzikf/super-projekt.git"
+  },
+  "keywords": [
+    "todo",
+    "app"
+  ],
+  "author": "Zuzanna Mikucka, Michał Radecki, Filip Twardzik, Jan Błażejczyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twardzikf/super-projekt/issues"
+  },
+  "homepage": "https://github.com/twardzikf/super-projekt#readme"
+}
