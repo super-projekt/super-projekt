@@ -1,0 +1,23 @@
+body {
+    font-size: 20px;
+}
+
+.site {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 100px auto;
+  border: 2px dashed blue;
+  height: 100vh;
+}
+.site__sidebar {
+  border: 2px dashed lime;
+  grid-area: 1 / 1 / 3 / 2;
+}
+.site__main {
+  border: 2px dashed red;
+  grid-area: 2 / 2 / 3 / 3;
+}
+.site__topbar {
+  border: 2px dashed yellow;
+  grid-area: 1 / 2 / 2 / 3;
+}
