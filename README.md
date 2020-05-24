@@ -18,14 +18,12 @@
   2. *http://localhost:8080/* w przeglądarce, żeby wyświetlić stronę
   3. Tak długo jak serwer jest uruchomiony, strona jest dostepna w przeglądarce i będzie automatycznie odświeżana podczas edytowania plików przy pracy nad projektem.
 
+## Project management
+ - task board: https://app.asana.com/0/1166934573102385/board 
 
-## Technology stack
-
-
-### Frontend
-- HTML, CSS + PureCSS, JS
-https://github.com/pure-css/pure
-
-### Backend
-- Python + Flask
--https://github.com/twardzikf/super-projekt
+## Techstack
+  - Bootstrap https://getbootstrap.com/docs/4.0/getting-started/introduction/
+  - jQuery https://api.jquery.com/
+  - Backend [wkrótce]:
+    - Python + Flask
+    -https://github.com/twardzikf/super-projekt
