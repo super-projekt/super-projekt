@@ -13,7 +13,7 @@
 
 ## Git
 
-**0**. Jeśli nie masz jeszcze gitowego repository projektu:
+**1**. Jeśli nie masz jeszcze gitowego repository projektu:
 
     git clone https://github.com/twardzikf/super-projekt.git
     cd super-projekt
