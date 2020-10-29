@@ -1,4 +1,4 @@
-# Super Projekt - najlepsza TODO apka prosto znad Wisły (i Sprewy)
+# Super Projekt - najlepsza TODO apka prosto znad Wisły
 
 ## O projekcie
  - task board: https://app.asana.com/0/1166934573102385/board
