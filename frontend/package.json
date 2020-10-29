@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "TODO App for management of personal tasks and goals",
   "main": "./src/index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
     "serve": "webpack-dev-server",
     "build": "webpack"
@@ -35,9 +32,6 @@
   },
   "homepage": "https://github.com/twardzikf/super-projekt#readme",
   "dependencies": {
-    "@popperjs/core": "^2.4.0",
     "bootstrap": "^4.5.0",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.1"
   }
 }

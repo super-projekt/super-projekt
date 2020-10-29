@@ -1,29 +1,135 @@
-# TODO App
+# Super Projekt - najlepsza TODO apka prosto znad Wisły (i Sprewy)
 
-## Inicjalizacja
-0. Jeśli nie masz jeszcze kodu projektu:
-  - `git clone https://github.com/twardzikf/super-projekt.git`
-  - `cd super-projekt`
-1. Sprawdź, czy masz zainstalwoany NodeJS Package Manager (*NPM*). Jeśli nie, zainstaluj go:
-  - Sprawdź czy npm jest zainstalowany:
-  `npm -v`
-  - zainstaluj npm (Linux Manjaro)
-  `sudo pacman -Syu nodejs npm`
-  - https://forum.manjaro.org/t/how-to-install-nodejs-and-npm-404/98736
+## O projekcie
+ - task board: https://app.asana.com/0/1166934573102385/board
+ - Tech Stack:
+  - Frontend
+    - Bootstrap https://getbootstrap.com/docs/4.0/getting-started/introduction/
+  - API:
+    - Python + Flask https://flask.palletsprojects.com/en/1.1.x/quickstart/
+  - Database:
+    - MongoDB https://www.mongodb.com/
 
-2. `npm i` w folderze projektu, że zainstalować wymagane biblitokeki etc.
 
-## Serwer testowy
-  1. `npm run serve` żeby uruchomić w konsoli serwer testowy.
-  2. *http://localhost:8080/* w przeglądarce, żeby wyświetlić stronę
-  3. Tak długo jak serwer jest uruchomiony, strona jest dostepna w przeglądarce i będzie automatycznie odświeżana podczas edytowania plików przy pracy nad projektem.
+## Git
 
-## Project management
- - task board: https://app.asana.com/0/1166934573102385/board 
+**0**. Jeśli nie masz jeszcze gitowego repository projektu:
 
-## Techstack
-  - Bootstrap https://getbootstrap.com/docs/4.0/getting-started/introduction/
-  - jQuery https://api.jquery.com/
-  - Backend [wkrótce]:
-    - Python + Flask
-    -https://github.com/twardzikf/super-projekt
+    git clone https://github.com/twardzikf/super-projekt.git
+    cd super-projekt
+
+## MongoDB [na razie niepotrzebne]
+
+**1**. Zainstaluj i uruchom bazę danych MongoDB na swoim systemie:
+  - Windows: https://www.mongodb.com/try/download/community
+  - Linux Manjaro:
+
+    (https://stackoverflow.com/questions/59455725/install-mongodb-on-manjaro)
+        git clone https://aur.archlinux.org/mongodb-bin.git
+        cd mongodb-bin
+        makepkg -si
+        systemctl start mongodb
+    Opcjonalnie, poniższa komenda może być dodatkowo potrzebna:
+
+        systemctl enable mongodb
+
+    Żeby uruchomić mongo:
+
+        mongo
+
+## Frontend
+
+**0**. Upewnij się, że masz zainstalowane **npm**.
+
+    npm -v
+
+Jeśli nie, zainstaluj npm (Linux Manjaro, dla innych OS szukaj sam(a))
+
+    sudo pacman -Syu nodejs npm
+
+https://forum.manjaro.org/t/how-to-install-nodejs-and-npm-404/98736
+
+(**Ważne**: wykonuj wszystkie poniższe komendy w root folderze dla frontendu, czyli w *superprojekt/frontend*)
+
+**1**. Zainstaluj/Aktualizuj wszystkie wymagane paczki.
+
+    npm i
+
+(Ta operacja stworzy folder **node_modules** który nie będzie dodawany do gita - każdy ma go oddzielnie, lokalnie u siebie)
+
+**2**. Uruchom serwer serwujący frontend pod *http://localhost:8080*
+
+    npm run serve
+
+(Tak długo jak serwer jest uruchomiony, strona jest dostepna w przeglądarce i będzie automatycznie odświeżana podczas edytowania plików przy pracy nad projektem.)
+
+## API
+
+**0**. Upewnij się, że masz zainstalowane **python** oraz **pip**.
+
+(**Ważne**: wykonuj wszystkie poniższe komendy w root folderze dla api, czyli w *superprojekt/api*)
+
+**1**. Stwórz środowisko wirtualne (tylko raz przy inicjalizacji projektu).
+
+    python3 -m venv env
+
+(W wyniku tej komendy zostanie utworzony folder **env**, który nie będzie dodawany do gita - każdy ma go oddzielnie, lokalnie u siebie)
+
+**2**. Wejdź w tryb wirtualnego srodowiska.
+
+    source env/bin/activate
+
+**3**. Zainstaluj wszystkie wymagane paczki.
+
+    pip3 install -r requirements.txt
+
+**4**. Dodaj paczkę i zapisz ją w pliku z listą paczek wymaganych w projekcie
+
+    pip install paczka_name && pip freeze > requirements.txt
+
+**5**. Uruchom aplikację.
+
+    python3 src/app.py
+
+**6**. Przerywając bądź kończąc pracę, wyjdź ze środowiska wirtualnego.
+
+    deactivate
+
+## Przydatne/ciekawe linki
+
+### Git
+- https://campus.datacamp.com/courses/introduction-to-git/basic-workflow?ex=2
+- https://deepsource.io/blog/git-best-practices/
+
+### Frontend
+
+##### HTML & CSS
+- https://github.com/gendx/html-cheat-sheet
+- https://acchou.github.io/html-css-cheat-sheet/html-css-cheat-sheet.html#css
+- https://github.com/iLoveCodingOrg/html-cheatsheet
+
+##### JS
+- https://javascript.info/
+- https://www.sitepoint.com/shorthand-javascript-techniques/
+
+##### Design, UI & UX
+- https://medium.muz.li/
+- https://dribbble.com/colors/2516c7?percent=30
+- https://coolors.co/app
+- https://materialdesignicons.com/
+- https://material.io/design/introduction/#principles
+- https://docs.google.com/spreadsheets/d/1XMdzbylu10auGFyfJjc5yzn3-rYk-89rqBna0TBvL2M/edit#gid=503173508
+
+
+##### Wyjątkowe strony/projekty/biblioteki
+- https://www.30secondsofcode.org/css/p/1
+- https://tympanus.net/Development/GridLayoutMotion/
+- https://www.supremo.co.uk/typeterms/
+- http://www.csszengarden.com/
+- https://www.bucketlistly.blog/?ref=bucketlistly
+- https://shopify.github.io/draggable/examples/
+- https://material.io/resources/
+- https://material.io/design/material-studies/basil.html#typography
+- https://codepen.io/juliangarnier/pen/idhuG
+- https://codepen.io/jaysalvat/pen/HaqBf
+- https://codepen.io/juliangarnier/pen/hzDAF

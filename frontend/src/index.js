@@ -5,13 +5,12 @@ import './css/main.css'
 global.jQuery = require('jquery');
 require('bootstrap');
 import { tasks, goals, routines, users } from './data/testData.js'
-import { task } from './components/task.js'
+import Button from './components/button.js'
 import EventBus from './EventBus.js'
 
-//alert('Pozdro z podziemia!');
 
-const task1 = task('ale ze', 'mnie zadanie')
-document.body.appendChild(task1)
+const button1 = button('Dzień', 'show-view:day')
+document.body.appendChild(button1)
 
 
 // Example usage of event bus
@@ -25,3 +24,8 @@ EventBus.emit('show-view:week') // send event
 
 
 EventBus.off('show-view:week', handler) // deregister event listener
+
+
+// to create a whole bigger piece of html in js you can do this:
+// let wrapper = doument.createElement('div')
+// wrapper.innerHTML = '... all your html goes here and becomes nested in the wrapper element'
