@@ -10,6 +10,11 @@
   - Database:
     - MongoDB https://www.mongodb.com/
 
+## Konwencje i nazewnictwo [In progress]:
+ - nazewnictwo branchów na gicie:
+   - *feature/xyz*: dla nowych rzeczy, nowych funkcjonalności/komponentów/aspektów aplikacji
+   - *fix/xyz*: kiedy naprawiamy/poprawiamy istniejącą funkcjonalność
+   - *refactor/xyz*: kiedy nie zmieniamy funkcjonalności, a jedynie sprzątamy/porządkujemy/upiększamy kod
 
 ## Git
 
@@ -18,7 +23,7 @@
     git clone https://github.com/twardzikf/super-projekt.git
     cd super-projekt
 
-## MongoDB [na razie niepotrzebne]
+## MongoDB
 
 **1**. Zainstaluj i uruchom bazę danych MongoDB na swoim systemie:
   - Windows: https://www.mongodb.com/try/download/community
