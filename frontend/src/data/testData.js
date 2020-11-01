@@ -1,5 +1,4 @@
 const task1 = {
-  //TODO...
 }
 
 const user1 = {
