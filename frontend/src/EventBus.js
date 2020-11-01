@@ -1,12 +1,12 @@
 function EventBus() {
   const subscriptions = { };
 
-  this.subscribe = function subscribeCallbackToEvent(eventType, callback) {
+  this.on = function subscribeCallbackToEvent(eventType, callback) {
     const id = Symbol('id');
     if (!subscriptions[eventType]) subscriptions[eventType] = { };
     subscriptions[eventType][id] = callback;
     return {
-      unsubscribe: function unsubscribe() {
+      off: function off() {
         delete subscriptions[eventType][id];
         if (Object.getOwnPropertySymbols(subscriptions[eventType]).length === 0) {
           delete subscriptions[eventType];
@@ -15,7 +15,7 @@ function EventBus() {
     };
   };
 
-  this.publish = function publishEventWithArgs(eventType, arg) {
+  this.emit = function publishEventWithArgs(eventType, arg) {
     if (!subscriptions[eventType]) return;
 
     Object.getOwnPropertySymbols(subscriptions[eventType])

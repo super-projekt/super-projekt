@@ -1,29 +1,30 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/main.css'
-
-global.jQuery = require('jquery');
-require('bootstrap');
+import { $,jQuery } from 'jquery';
 import { tasks, goals, routines, users } from './data/testData.js'
-import Button from './components/button.js'
+import button from './components/button.js'
 import EventBus from './EventBus.js'
 
+window.$ = $;
+window.jQuery = jQuery;
 
-const button1 = button('Dzień', 'show-view:day')
-document.body.appendChild(button1)
+const eventBus = new EventBus();
 
+const button1 = button(eventBus, 'Dzień', 'show-view:day')
+document.getElementById('topbar').appendChild(button1)
 
 // Example usage of event bus
 const handler = (event) => {
   console.log('Wololollo')
   // Do something
 }
-EventBus.on('show-view:week', handler)
+eventBus.on('show-view:week', handler)
 
-EventBus.emit('show-view:week') // send event
+eventBus.emit('show-view:week') // send event
 
 
-EventBus.off('show-view:week', handler) // deregister event listener
+//eventBus.off('show-view:week') // deregister event listener
 
 
 // to create a whole bigger piece of html in js you can do this:
