@@ -38,9 +38,22 @@
 
         systemctl enable mongodb
 
-    Żeby uruchomić mongo:
+    Żeby uruchomić mongo (jeśli chcemy działać na nim w terminalu):
 
         mongo
+
+**2**. Oficjalna strona do pobrania MongoDB Compass (MongoDB GUI):
+	https://www.mongodb.com/try/download/compass
+
+	Nie ma wersji na Manjaro, ja znalazłem działającą wersję w bauh: mongodb-compass 1.22.1-1 ogarcia
+
+**3** Zakładamy bazę danych
+
+	Otwieramy MongoDB Compass
+	Naciskamy zielony guzik "connect"
+	Naciskamy "create database"
+	Nazywamy database "super-projekt"
+	Tworzymy w niej kolekcje "users", "tasks" i "goals"
 
 ## Frontend
 
