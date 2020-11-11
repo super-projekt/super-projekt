@@ -1,10 +1,11 @@
-from goal_model import Goal
+from .goal_model import Goal
 
 class GoalRepository:
     
     # todo
 
     def __init__(self):
+        # connect
         pass
 
     def get_all(self):

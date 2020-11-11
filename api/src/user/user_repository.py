@@ -1,10 +1,11 @@
-from user_model import User
+from .user_model import User
 
 class UserRepository:
     
     # todo
 
     def __init__(self):
+        # connect with DB
         pass
 
     def get_all(self):

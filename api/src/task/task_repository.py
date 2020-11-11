@@ -1,10 +1,11 @@
-from task_model import Task
+from .task_model import Task
 
 class TaskRepository:
 
     # todo
 
     def __init__(self):
+         # connect with DB
         pass
 
     def get_all(self):

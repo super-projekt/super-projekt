@@ -1,5 +1,5 @@
-from goal_model import Goal
-from goal_repository import GoalRepository
+from .goal_repository import GoalRepository
+from ..task.task_repository import TaskRepository
 
 class GoalService:
     pass
