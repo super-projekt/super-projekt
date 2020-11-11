@@ -1,15 +1,10 @@
-from .user_model import User
-
 class UserRepository:
-    
-    # todo
 
-    def __init__(self):
-        # connect with DB
-        pass
+    def __init__(self, db):
+        self.users = db.users
 
     def get_all(self):
-        pass
+        return self.users.find()
 
     def get_by_id(self, id: str):
         pass
