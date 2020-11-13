@@ -1,15 +1,10 @@
-from .goal_model import Goal
-
 class GoalRepository:
-    
-    # todo
 
-    def __init__(self):
-        # connect
-        pass
+    def __init__(self, db):
+        self.goals = db.goals
 
     def get_all(self):
-        pass
+        return self.goals.find()
 
     def get_by_id(self, id: str):
         pass

@@ -1,15 +1,10 @@
-from .task_model import Task
-
 class TaskRepository:
 
-    # todo
-
-    def __init__(self):
-         # connect with DB
-        pass
+    def __init__(self, db):
+        self.tasks = db.tasks
 
     def get_all(self):
-        pass
+        return self.tasks.find()
 
     def get_by_id(self, id: str):
         pass
