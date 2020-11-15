@@ -1,0 +1,96 @@
+{
+  "Users": [
+    {
+      "name": "Radecki von Radetz",
+      "user_id": 0987,
+      "tasks": [
+        {"task_id": 123},
+        {"task_id": 456},
+      ],
+      "goals": [
+        {"goal_id": 987},
+        {"goal_id": 765},
+      ]
+    },
+    {
+      "name": "Zuzanna Mikucka",
+      "user_id": 0198,
+      "tasks": [
+        {"task_id": 321},
+        {"task_id": 734}
+      ],
+      "goals": [
+        {"goal_id": 724},
+        {"goal_id": 698}
+      ],
+    }
+  ],
+  "Goals": [
+    {
+      "goal_id": 987,
+      "user_id": 0987,
+      "name": "Magisterka",
+      "tasks": [
+        {"task_id": 456}
+      ]
+    },
+    {
+      "goal_id": 765,
+      "user_id": 0987,
+      "name": "Granie w GO",
+      "tasks": [
+        {"task_id": 123}
+      ]
+    },
+    {
+      "goal_id": 724,
+      "user_id": 0198,
+      "name": "Nauka front endu",
+      "tasks": [
+        {"task_id": 321}
+      ]
+    },
+    {
+      "goal_id": 698,
+      "user_id": 0198,
+      "name": "Zostanie prawniczką",
+      "tasks": [
+        {"task_id": 734}
+      ]
+    }
+  ],
+  "Tasks": [
+    {
+      "task_id": 123,
+      "user-id": 0987,
+      "name": "Poćwiczyć warianty mid-game",
+      "description": "Poznać strategie, żeby nie być takim  zabijaką",
+      "state": "IN_PROGRESS",
+      "goal_id": 765
+    },
+    {
+      "task_id": 456,
+      "user-id": 0987,
+      "name": "Przeczytanie literatury",
+      "description": "Przeczytać 3 artykuły",
+      "state": "TODO",
+      "goal_id": 987
+    },
+    {
+      "task_id": 321,
+      "user-id": 0198,
+      "name": "JS Crash Course",
+      "description": "Przerobic crash course JSa przed callem",
+      "state": "DONE",
+      "goal_id": 724
+    },
+    {
+      "task_id": 734,
+      "user-id": 0198,
+      "name": "Praca z konsty",
+      "description": "Napisać pracę domową z prawa konstytucyjnego",
+      "state": "TODO",
+      "goal_id": 698
+    },
+  ]
+}
