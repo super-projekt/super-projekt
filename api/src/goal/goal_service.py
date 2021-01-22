@@ -2,4 +2,6 @@ from .goal_repository import GoalRepository
 from ..task.task_repository import TaskRepository
 
 class GoalService:
-    pass
+    
+    def __init__(self, goalRepository, taskRepository):
+        pass
