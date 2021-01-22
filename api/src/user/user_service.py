@@ -2,4 +2,6 @@ from .user_model import User
 from .user_repository import UserRepository
 
 class UserService:
-    pass
+    
+    def __init__(self, userRepository):
+        pass
