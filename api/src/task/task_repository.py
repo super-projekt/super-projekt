@@ -14,23 +14,18 @@ class TaskRepository:
     # czy tu nie będziemy potrzebowac jeszcze funkcji na np znajdowanie wszystkich tasków danego użytkownika itp?
     def get_by_id(self, id: str):
         # Convert from string to ObjectId (jest task bo nasza kolekcja w db sie tak nazywa):
-        document = client.db.task.find_one({'_id': ObjectId(id)})
-        return self.task.find_one(document)
+        return self.tasks.find_one({'_id': ObjectId(id)})
 
     # create a task
     #instance attribute 'data' defined outside of __init__ ???
     def create(self, data):
-        self.data = data
-        return data.insert_one()
+        return self.tasks.insert_one(data)
 
     # update a task
-    def update(self, id: str, data):
-        # we find a task to update (by id)
-        document = client.db.task.find_one({'_id': ObjectId(id)})
+    def update(self, id: str, data=None):
         # document is the document we want to update and the data is the things we want to replace
-        return self.task.update_one(document, data)
+        return self.tasks.update_one({'_id': ObjectId(id)}, data)
 
     # delete a task
     def delete(self, id: str):
-        document = client.db.task.find_one({'_id': ObjectId(id)})
-        return self.task.delete_one(document)
+        return self.tasks.delete_one({'_id': ObjectId(id)})
