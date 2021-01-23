@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, make_response, request
 from pymongo import MongoClient
 
 
@@ -23,9 +23,41 @@ userService = UserService(userRepository)
 
 app = Flask(__name__)
 
+
+
+# root level
+
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return 'super-projekt API. For Documentation follow this link: http://work.in.progress/'
 
+# users
+
+@app.route('/users', methods=['POST'])
+def create_user():
+    user_data = request.get_json()
+    userService.create(user_data)
+    headers = {
+        "Content-Type": "application/json"
+    }
+    return make_response(None, 201,headers=headers)
+
+
+@app.route("/users/<user_id>", methods=['GET'])
+def get_user(user_id):
+    user = userService.get_by_id(user_id)
+    response_code = 404 if user is None else 200
+    headers = {
+        "Content-Type": "application/json"
+    }
+    return make_response(user, response_code, headers=headers)
+        
+# tasks
+
+# goals
+
+
+
+#   #   #   #   #   #   # 
 if __name__ == '__main__':
     app.run()
