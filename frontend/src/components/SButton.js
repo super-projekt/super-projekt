@@ -1,5 +1,3 @@
-import EventBus from '../EventBus';
-
 /* Argumenty:
  * eventBus: obiekt eventBusa służący do komunikacji. Musi być przekazany
  *           z zewnątrz, gdyż istnieje tylko jedna, globalna jego kopia
@@ -12,18 +10,17 @@ import EventBus from '../EventBus';
  *          o jego wyglądzie, również jako string
  */
 
+import { read } from "@popperjs/core";
+
 function SButton (eventBus, eventName, buttonVariant, buttonText) {
 
-  /* Na początek tworzymy generyczny, zwyczajny HTML button */
   const buttonHTMLElement = document.createElement('button');
 
-  const primaryColor = '#FF0000';
-  const primaryDarkerColor = '#?'; // TODO uzupełnij kolor
+  const primaryColor = '#41b3a3';
+  const primaryDarkerColor = '#1a9c8a';
   const whiteColor = '#FFFFFF';
-  const grayColor = '#?'; // TODO uzupełnij kolor
+  const grayColor = '#bababa'; 
 
-  /* Następnie ustawiamy treść tekstu buttona na wartość podaną jako argument buttonText */
-  // TODO
 
   /* Tutaj podłączamy funkcję emitującą event przekazany w argumencie funkcji SButton() */
   buttonHTMLElement.onclick = () => {
@@ -34,29 +31,130 @@ function SButton (eventBus, eventName, buttonVariant, buttonText) {
 
   /* Za pomocą instrukcji warunkowej sprawdzamy jaki wariant został podany jako argument */
 
-  const buttonStyle = buttonHTMLElement.style;
+const buttonStyle = buttonHTMLElement.style;
 
   switch(buttonVariant) {
     case 'primary':
-      /* Dodaj style odpowiednie dla wariantu primary */
-      // Przykład dodawania styli css w javascripcie
       buttonStyle["background-color"] = primaryColor;
-      // TODO
+      buttonStyle["color"] = whiteColor;
+     
+      buttonHTMLElement.onmouseenter = () => {
+        buttonStyle["background-color"] = primaryDarkerColor;
+      }
+   
+      buttonHTMLElement.onmouseleave = () => {
+        buttonStyle["background-color"] = primaryColor;
+      }
+
+      Object.defineProperty(buttonHTMLElement, 'disabled', {
+        value: false,
+        writable: true,
+        set: (newvalue) => {
+          if (newvalue===false) {
+            
+            buttonStyle["background-color"] = primaryColor;
+            buttonStyle["color"] = whiteColor;
+            
+          } else {
+
+            buttonStyle["background-color"] = whiteColor;
+            buttonStyle["color"] = grayColor;
+            buttonStyle["border-color"] = grayColor;
+          }
+        }
+      });
+
+
+
+
       break;
+
     case 'secondary':
-      /* Dodaj style odpowiednie dla wariantu secondary */
-      // TODO
+      buttonStyle["background-color"] = whiteColor;
+      buttonStyle["color"] = primaryColor;
+      buttonStyle["border-color"] = primaryColor; 
+
+      buttonHTMLElement.onmouseenter = () => {
+        buttonStyle["color"] = primaryDarkerColor;
+         buttonStyle["border-color"] = primaryDarkerColor;
+      }
+   
+      buttonHTMLElement.onmouseleave = () => {
+        buttonStyle["color"] = primaryColor;
+        buttonStyle["border-color"] = primaryColor;
+      }
+     
+
+
+      Object.defineProperty(buttonHTMLElement, 'disabled', {
+        value: false,
+        writable: true,
+        set: (newvalue) => {
+          if (newvalue===false) {
+            
+            buttonStyle["background-color"] = whiteColor;
+            buttonStyle["color"] = primaryColor;
+            buttonStyle["border-color"] = primaryColor; 
+
+            
+          } else {
+
+            buttonStyle["background-color"] = whiteColor;
+            buttonStyle["color"] = grayColor;
+            buttonStyle["border-color"] = grayColor;
+          }
+        }
+      });
+
+
       break;
+
     case 'tertiary':
-      /* Dodaj style odpowiednie dla wariantu tertiary */
-      // TODO
+      buttonStyle["color"] = primaryColor;
+
+      buttonHTMLElement.onmouseenter = () => {
+        buttonStyle["color"] = primaryDarkerColor;
+        
+      }
+   
+      buttonHTMLElement.onmouseleave = () => {
+        buttonStyle["color"] = primaryColor;
+    
+      }
+
+
+      Object.defineProperty(buttonHTMLElement, 'disabled', {
+        value: false,
+        writable: true,
+        set: (newvalue) => {
+          if (newvalue===false) {
+            
+            buttonStyle["color"] = primaryColor;
+
+
+            
+          } else {
+
+            buttonStyle["color"] = grayColor;
+           
+          }
+        }
+      });
+
+
       break;
+
+
   }
-  /* Dodaj style wspólne dla wszystkich wariantów,
-  w tym te odpowiadające za efekty :hover, :active, disabled */
-  // TODO
+  /* Dodaj style wspólne dla wszystkich wariantów */
 
+   buttonStyle['border'] = '1px'
+   buttonStyle['border-radius'] = '6px'
+   
 
+  buttonHTMLElement.textContent = buttonText;
+
+ 
 
   /* Na koniec zwracamy nasz scustomizowany, przygotowany */
   return buttonHTMLElement;
