@@ -31,7 +31,7 @@ function SButton (eventBus, eventName, buttonVariant, buttonText) {
 
   /* Za pomocą instrukcji warunkowej sprawdzamy jaki wariant został podany jako argument */
 
-  const buttonStyle = buttonHTMLElement.style;
+const buttonStyle = buttonHTMLElement.style;
 
   switch(buttonVariant) {
     case 'primary':
@@ -45,6 +45,27 @@ function SButton (eventBus, eventName, buttonVariant, buttonText) {
       buttonHTMLElement.onmouseleave = () => {
         buttonStyle["background-color"] = primaryColor;
       }
+
+      Object.defineProperty(buttonHTMLElement, 'disabled', {
+        value: false,
+        writable: true,
+        set: (newvalue) => {
+          if (newvalue===false) {
+            
+            buttonStyle["background-color"] = primaryColor;
+            buttonStyle["color"] = whiteColor;
+            
+          } else {
+
+            buttonStyle["background-color"] = whiteColor;
+            buttonStyle["color"] = grayColor;
+            buttonStyle["border-color"] = grayColor;
+          }
+        }
+      });
+
+
+
 
       break;
 
@@ -63,6 +84,29 @@ function SButton (eventBus, eventName, buttonVariant, buttonText) {
         buttonStyle["border-color"] = primaryColor;
       }
      
+
+
+      Object.defineProperty(buttonHTMLElement, 'disabled', {
+        value: false,
+        writable: true,
+        set: (newvalue) => {
+          if (newvalue===false) {
+            
+            buttonStyle["background-color"] = whiteColor;
+            buttonStyle["color"] = primaryColor;
+            buttonStyle["border-color"] = primaryColor; 
+
+            
+          } else {
+
+            buttonStyle["background-color"] = whiteColor;
+            buttonStyle["color"] = grayColor;
+            buttonStyle["border-color"] = grayColor;
+          }
+        }
+      });
+
+
       break;
 
     case 'tertiary':
@@ -77,13 +121,36 @@ function SButton (eventBus, eventName, buttonVariant, buttonText) {
         buttonStyle["color"] = primaryColor;
     
       }
+
+
+      Object.defineProperty(buttonHTMLElement, 'disabled', {
+        value: false,
+        writable: true,
+        set: (newvalue) => {
+          if (newvalue===false) {
+            
+            buttonStyle["color"] = primaryColor;
+
+
+            
+          } else {
+
+            buttonStyle["color"] = grayColor;
+           
+          }
+        }
+      });
+
+
       break;
 
 
   }
   /* Dodaj style wspólne dla wszystkich wariantów */
 
-  /* buttonStyle['padding'] = 'x,y,z,b' */
+   buttonStyle['border'] = '1px'
+   buttonStyle['border-radius'] = '6px'
+   
 
   buttonHTMLElement.textContent = buttonText;
 
