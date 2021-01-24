@@ -10,8 +10,6 @@
  *          o jego wyglądzie, również jako string
  */
 
-import { read } from "@popperjs/core";
-
 function SButton (eventBus, eventName, buttonVariant, buttonText) {
 
   const buttonHTMLElement = document.createElement('button');
@@ -31,132 +29,100 @@ function SButton (eventBus, eventName, buttonVariant, buttonText) {
 
   /* Za pomocą instrukcji warunkowej sprawdzamy jaki wariant został podany jako argument */
 
-const buttonStyle = buttonHTMLElement.style;
+  const buttonStyle = buttonHTMLElement.style;
 
   switch(buttonVariant) {
     case 'primary':
       buttonStyle["background-color"] = primaryColor;
       buttonStyle["color"] = whiteColor;
-     
+      buttonStyle["border"] = `1px solid ${primaryColor}`;
       buttonHTMLElement.onmouseenter = () => {
-        buttonStyle["background-color"] = primaryDarkerColor;
+        if (!buttonHTMLElement.disabled) {
+          buttonStyle["background-color"] = primaryDarkerColor;
+        }
+        
       }
-   
       buttonHTMLElement.onmouseleave = () => {
-        buttonStyle["background-color"] = primaryColor;
+        if (!buttonHTMLElement.disabled) {
+          buttonStyle["background-color"] = primaryColor;
+        }
       }
 
       Object.defineProperty(buttonHTMLElement, 'disabled', {
-        value: false,
-        writable: true,
         set: (newvalue) => {
           if (newvalue===false) {
-            
             buttonStyle["background-color"] = primaryColor;
             buttonStyle["color"] = whiteColor;
-            
+            buttonStyle["border"] = `1px solid ${primaryColor}`;
           } else {
-
             buttonStyle["background-color"] = whiteColor;
             buttonStyle["color"] = grayColor;
-            buttonStyle["border-color"] = grayColor;
+            buttonStyle["border"] = `1px solid ${grayColor}`;
           }
         }
       });
-
-
-
-
       break;
 
     case 'secondary':
       buttonStyle["background-color"] = whiteColor;
       buttonStyle["color"] = primaryColor;
-      buttonStyle["border-color"] = primaryColor; 
-
+      buttonStyle["border"] = `1px solid ${primaryColor}`;
       buttonHTMLElement.onmouseenter = () => {
         buttonStyle["color"] = primaryDarkerColor;
-         buttonStyle["border-color"] = primaryDarkerColor;
+        buttonStyle["border"] = `1px solid ${primaryDarkerColor}`;
       }
-   
       buttonHTMLElement.onmouseleave = () => {
         buttonStyle["color"] = primaryColor;
-        buttonStyle["border-color"] = primaryColor;
+        buttonStyle["border"] = `1px solid ${primaryColor}`;
       }
-     
-
-
       Object.defineProperty(buttonHTMLElement, 'disabled', {
-        value: false,
-        writable: true,
         set: (newvalue) => {
           if (newvalue===false) {
-            
             buttonStyle["background-color"] = whiteColor;
             buttonStyle["color"] = primaryColor;
-            buttonStyle["border-color"] = primaryColor; 
-
-            
+            buttonStyle["border"] = `1px solid ${primaryColor}`;
           } else {
-
             buttonStyle["background-color"] = whiteColor;
             buttonStyle["color"] = grayColor;
-            buttonStyle["border-color"] = grayColor;
+            buttonStyle["border"] = `1px solid ${grayColor}`;
           }
         }
       });
-
-
       break;
 
     case 'tertiary':
       buttonStyle["color"] = primaryColor;
-
+      buttonStyle["border"] = `none`;
+      buttonStyle["background"] = `none`;
       buttonHTMLElement.onmouseenter = () => {
-        buttonStyle["color"] = primaryDarkerColor;
-        
+        buttonStyle["color"] = primaryDarkerColor;  
       }
-   
       buttonHTMLElement.onmouseleave = () => {
         buttonStyle["color"] = primaryColor;
-    
       }
-
-
       Object.defineProperty(buttonHTMLElement, 'disabled', {
-        value: false,
-        writable: true,
         set: (newvalue) => {
-          if (newvalue===false) {
-            
+          if (newvalue===false) {   
             buttonStyle["color"] = primaryColor;
-
-
-            
           } else {
-
             buttonStyle["color"] = grayColor;
-           
           }
         }
       });
-
-
       break;
+    }
 
-
-  }
-  /* Dodaj style wspólne dla wszystkich wariantów */
-
-   buttonStyle['border'] = '1px'
-   buttonStyle['border-radius'] = '6px'
+    /* Dodaj style wspólne dla wszystkich wariantów */
+    //buttonStyle['border'] = '1px'
+    buttonStyle['border-radius'] = '6px';
+    buttonStyle['outline'] = 'none';
+    buttonStyle['box-shadow'] = 'none';
+    buttonStyle['margin'] = '0.5rem';
    
+    /* Jako tekst na buttonie ustaw wartość parametru buttonText */ 
+    buttonHTMLElement.textContent = buttonText;
 
-  buttonHTMLElement.textContent = buttonText;
-
- 
-
-  /* Na koniec zwracamy nasz scustomizowany, przygotowany */
+    /* Na koniec zwracamy nasz scustomizowany, przygotowany */
   return buttonHTMLElement;
 }
 
