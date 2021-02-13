@@ -1,3 +1,6 @@
+import pymongo
+from bson.objectid import ObjectId
+
 class GoalRepository:
 
     def __init__(self, db):
@@ -7,13 +10,13 @@ class GoalRepository:
         return self.goals.find()
 
     def get_by_id(self, id: str):
-        pass
+        return self.goals.find_one({'_id': ObjectId(id)})
 
     def create(self, data):
-        pass
+        return self.goals.insert_one(data)
 
     def update(self, id: str, data):
-        pass
+        return self.goals.update_one({'_id': ObjectId(id)}, data)
 
     def delete(self, id: str):
-        pass
+        return self.goals.delete_one({'_id': ObjectId(id)})
